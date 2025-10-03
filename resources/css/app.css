@@ -1,0 +1,45 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+
+:root {
+
+    /* Colors */
+    --primaryColor : #0B0D17;
+    --secondaryColor : #D0D6F9;
+    --thirdColor : #FFFFFF;
+
+    /* Fonts*/            
+    --primaryFont : 'Bellefair';
+    --secondaryFont : 'Barlow Condensed';
+    --thirdFont : 'Barlow';
+
+    /* Weights */
+    --weight: 400; /* Regular */
+
+    /* Sizes */
+    --size150 : 9.375 rem; /* 150px / 16 = 9.375 */
+    --size100 : 6.25 rem; /* 100px / 16 = 6.25 */
+    --size56 : 3.5 rem;
+    --size32 : 2 rem;
+    --size28 : 1.75 rem;
+    --size18 : 1.125 rem;
+    --size16 : 1 rem;
+    --size14 : 0.875 rem;
+
+    /* Letter Spacing */
+    --letter-spacing1 : 0.295 rem;
+    --letter-spacing2 : 0.1475 rem; 
+    --letter-spacing3 :0.16875 rem;
+    
+}
+
