@@ -1,28 +1,52 @@
-<x-header>
-</x-header>
-
+<x-header></x-header>
 
 <x-layoutstar>
 
-    <div class="flex flex-row gap-4 bg-[#0B0D17] px-4 py-2  justify-center mb-10">
+    <!-- Titre -->
+    <div class="flex flex-row gap-4 bg-[#0B0D17] px-4 py-2 justify-center md:justify-start mb-10 lg:ml-20">
         <x-nb03 />
-        <h3 class="uppercase text-[#ffffff]">lanceur spatial</h3>
+        <h3 class="uppercase text-[#ffffff] md:text-left text-lg md:text-2xl mt-5 ">lanceur spatial</h3>
     </div>
 
-    <div class="flex items-center justify-center mt-10 lg:hidden">
-        <img src="{{ asset('images/Phone/launcher.png') }}" alt="moon" class="w-full h-auto max-w-full">
+    <!-- ✅ Layout principal : flex-col en mobile, flex-row en lg -->
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
+
+        <!-- ✅ Image : mobile/tablette uniquement -->
+        <div class="w-full mt-10 lg:hidden">
+            <img src="{{ asset('images/Phone/launcher.png') }}" alt="moon"
+                class="w-full h-auto">
+        </div>
+
+
+        <div class="mt-6 lg:h-screen lg:flex lg:items-center lg:hidden">
+            <x-numberslinks />
+        </div>
+
+        <!-- ✅ Texte + Numberslinks -->
+        <section class="flex flex-col lg:flex-row justify-center items-start text-center lg:text-left overflow-y-auto gap-10">
+
+            <!-- ✅ Numberslinks desktop -->
+            <div class="hidden lg:flex lg:flex-col lg:justify-center  lg:ml-20 lg:mr-20">
+                <x-numberslinks />
+            </div>
+
+            <!-- ✅ Bloc texte -->
+            <div class="flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
+                <span class="text-[#D0D6F9] uppercase text-2xl">la terminologie...</span>
+                <h1 class="text-white uppercase text-4xl mt-2">le lanceur</h1>
+                <p class="text-[#D0D6F9] text-center lg:text-left mt-10 mb-10 lg:max-w-xl">
+                    Un lanceur ou une fusée porteuse est un véhicule propulsé par fusée utilisé pour transporter une charge utile de la surface de la Terre vers l’espace, habituellement vers l’orbite terrestre ou au-delà. Notre fusée WEB-X est la plus puissante en service. Debout à 150 mètres de hauteur, elle donne lieu à un impressionnant spectacle sur le pas de tir !
+                </p>
+            </div>
+
+        </section>
+
+        <!-- ✅ Image version PC -->
+        <div class="hidden lg:flex items-center justify-center">
+            <img src="{{ asset('images/Deskstop/lanceur.png') }}" alt="launcher"
+                class="w-full h-auto max-w-md">
+        </div>
+
     </div>
-
-    <x-numberslinks>
-
-    </x-numberslinks>
-
-    <section class=" flex flex-col mt-10 justify-center items-center overflow-y-auto px-4">
-        <span class="text-[#D0D6F9] uppercase text-2xl">la terminologie...</span>
-        <h1 class="text-white uppercase text-center text-4xl">le lanceur</h1>
-
-        <p class="text-[#D0D6F9] text-center sm:p-4 md:p-6 lg:p-8 xl:p-12 2xl:p-10 mt-10 mb-10">Un lanceur ou une fusée porteuse est un véhicule propulsé par fusée utilisé pour transporter une charge utile de la surface de la Terre vers l’espace, habituellement vers l’orbite terrestre ou au-delà. Notre fusée WEB-X est la plus puissante en service. Debout à 150 mètres de hauteur, elle donne lieu à un impressionnant spectacle sur le pas de tir !
-        </p>
-    </section>
 
 </x-layoutstar>
