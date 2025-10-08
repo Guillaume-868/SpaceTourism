@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\WorkSpaceController;
 use GuzzleHttp\Promise\Create;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Route;
 use function PHPUnit\Framework\callback;
 
@@ -35,6 +37,34 @@ Route::get('/Space/Starships/launcher', function(){
     return view('/Space/Starships/launcher');
 
 })->name('launcher');
+
+
+// Route liée au changement de langue : 
+// (presentes plus haut)
+// use Illuminate\Support\Facades\App;
+// use Illuminate\Support\Facades\Session;
+
+// Route::post('/locale', function () {
+//     $locale = request('locale');
+
+//     if (in_array($locale, ['en', 'fr', 'es', 'de', 'it'])) {
+//         session(['locale' => $locale]);
+//         app()->setLocale($locale);
+//     }
+
+//     return response()->json(['status' => 'ok']);
+// })->name('locale.change');
+
+Route::post('/change-locale', function (Illuminate\Http\Request $request) {
+    $locale = $request->input('locale');
+
+    if (in_array($locale, ['en', 'fr', 'it'])) {
+        session(['locale' => $locale]);
+        app()->setLocale($locale); // pour la requête en cours
+    }
+
+    return response()->json(['status' => 'ok']);
+})->name('locale.change');
 
 
 // Route::controller(WorkSpaceController::class)->group(function () {
