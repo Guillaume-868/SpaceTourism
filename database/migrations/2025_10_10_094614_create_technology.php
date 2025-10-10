@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('technology', function (Blueprint $table) {
             $table->id();  // ✅ PRIMARY KEY automatique
             $table->timestamps();
-            $table->varchar('starships_fr',50);
-            $table->varchar('starships_en',50);
+            $table->string('starships_fr',50);
+            $table->string('starships_en',50);
             $table->text('description_fr');
             $table->text('description_en');
         });

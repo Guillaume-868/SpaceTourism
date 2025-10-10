@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('traduction', function (Blueprint $table) {
             $table->id(); // ✅ PRIMARY KEY automatique
             $table->timestamps();
-            $table->varchar('title',50);
+            $table->string('title',50);
             $table->text('content');
             $table->text('url');
         });

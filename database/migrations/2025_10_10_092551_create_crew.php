@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('crew', function (Blueprint $table) {
             $table->id();  // ✅ PRIMARY KEY automatique
             $table->timestamps();
-            $table->varchar('fonction_fr',50);
-            $table->varchar('fonction_en',50);
+            $table->string('fonction_fr',50);
+            $table->string('fonction_en',50);
             $table->text('description_fr');
             $table->text('description_en');
         });

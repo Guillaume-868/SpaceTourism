@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('langue', function (Blueprint $table) {
-            $table->id(); // ✅ PRIMARY KEY automatique
+            $table->char('code', 2)->primary(); // ou ->unique();
             $table->timestamps();
             $table->char('code',2);
-            $table->varchar('name',50);
+            $table->string('name',50);
             $table->boolean('langue_active')->default(true); // ✅ BOOLEAN avec valeur par défaut
         });
     }
