@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('crew', function (Blueprint $table) {
+        Schema::create('technologys', function (Blueprint $table) {
             $table->id();  // ✅ PRIMARY KEY automatique
             $table->timestamps();
-            $table->string('fonction_fr',50);
-            $table->string('fonction_en',50);
+            $table->string('starships_fr',50);
+            $table->string('starships_en',50);
             $table->text('description_fr');
             $table->text('description_en');
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('crew');
+        Schema::dropIfExists('technology');
     }
 };

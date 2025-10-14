@@ -15,6 +15,14 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
+         // Appelle ici tous les seeders que tu veux exécuter
+         $this->call([
+            PlanetSeeder::class,
+            CrewSeeder::class,
+            // Ajoute d'autres seeders ici si nécessaire
+            
+        ]);
+
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',

@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('name_en',7);
             $table->text('description_fr');
             $table->text('description_en');
-            $table->integer('distance_fr');
-            $table->integer('distance_en');
-            $table->smallInteger('duration_fr');
-            $table->smallInteger('duration_en');
+            $table->string('distance_fr',50);
+            $table->string('distance_en',50);
+            $table->string('duration_fr',50);
+            $table->string('duration_en',50);
         });
     }
 

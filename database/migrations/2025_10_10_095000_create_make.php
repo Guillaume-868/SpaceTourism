@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('make', function (Blueprint $table) {
             $table->char('code_1', 2);
-            $table->integer('id')->unsigned();
+            $table->unsignedBigInteger('id'); // ✅ même type que traduction.id
             $table->char('code', 2);
 
             // ✅ clé primaire composite

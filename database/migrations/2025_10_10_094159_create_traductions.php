@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('technology', function (Blueprint $table) {
-            $table->id();  // ✅ PRIMARY KEY automatique
+        Schema::create('traductions', function (Blueprint $table) {
+            $table->id(); // ✅ PRIMARY KEY automatique
             $table->timestamps();
-            $table->string('starships_fr',50);
-            $table->string('starships_en',50);
-            $table->text('description_fr');
-            $table->text('description_en');
+            $table->string('title',50);
+            $table->text('content');
+            $table->text('url');
         });
     }
 
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('technology');
+        Schema::dropIfExists('traduction');
     }
 };

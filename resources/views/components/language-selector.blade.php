@@ -3,7 +3,9 @@
     $locales = [
         'en' => 'gb',
         'fr' => 'fr',
-        'it' => 'it',
+        'de' => 'de',
+        'dz' => 'dz'
+        
     ];
     $currentLocale = app()->getLocale();
     $currentFlag = $locales[$currentLocale] ?? 'gb';

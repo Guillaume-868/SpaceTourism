@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('langue', function (Blueprint $table) {
-            $table->char('code', 2)->primary(); // ou ->unique();
+        Schema::create('crews', function (Blueprint $table) {
+            $table->id();  // ✅ PRIMARY KEY automatique
             $table->timestamps();
-            $table->char('code',2);
-            $table->string('name',50);
-            $table->boolean('langue_active')->default(true); // ✅ BOOLEAN avec valeur par défaut
+            $table->string('fonction_fr',50);
+            $table->string('fonction_en',50);
+            $table->text('description_fr');
+            $table->text('description_en');
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('langue');
+        Schema::dropIfExists('crew');
     }
 };
