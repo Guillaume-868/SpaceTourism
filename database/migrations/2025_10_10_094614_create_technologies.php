@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('technologys', function (Blueprint $table) {
+        Schema::create('technologies', function (Blueprint $table) {
             $table->id();  // ✅ PRIMARY KEY automatique
             $table->timestamps();
             $table->string('starships_fr',50);
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('technology');
+        Schema::dropIfExists('technologie');
     }
 };
