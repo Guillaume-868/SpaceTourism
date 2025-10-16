@@ -18,21 +18,21 @@
         <div class="w-full lg:w-1/2 text-center lg:text-left">
             <x-planets />
 
-            <h1 class="uppercase text-white text-4xl md:text-8xl mt-10 md:mt-5 text-center lg:text-left">lune</h1>
+            <h1 class="uppercase text-white text-4xl md:text-8xl mt-10 md:mt-5 text-center lg:text-left">{{ $planet->name_fr }}</h1>
 
             <p class="text-[#D0D6F9] text-base md:text-lg lg:text-xl mt-5 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
-                Voyez notre planète comme vous ne l'avez jamais vue auparavant. Un parfait voyage de détente pour vous aider à prendre du recul et revenir requinqué. Pendant que vous y êtes, plongez-vous dans l'histoire en visitant les sites d'atterrissage de Luna 2 et Apollo 11.
+               {{ $planet->description_fr }} 
             </p>
 
             <!-- Stats (distance et durée) -->
             <section class="mt-10 text-white flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 lg:justify-start text-center lg:text-left">
                 <div>
                     <h3 class="uppercase mb-2 text-[#D0D6F9]">distance</h3>
-                    <p class="text-white uppercase text-2xl">384 000 km</p>
+                    <p class="text-white uppercase text-2xl">{{$planet->distance_fr}}</p>
                 </div>
                 <div>
                     <h3 class="uppercase mb-2 text-[#D0D6F9]">durée</h3>
-                    <p class="text-white uppercase text-2xl">3 jours</p>
+                    <p class="text-white uppercase text-2xl">{{$planet->duration_fr}}</p>
                 </div>
             </section>
         </div>

@@ -33,9 +33,9 @@
             <!-- ✅ Bloc texte -->
             <div class="flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
                 <span class="text-[#D0D6F9] uppercase text-2xl">la terminologie...</span>
-                <h1 class="text-white uppercase text-4xl mt-2">le lanceur</h1>
+                <h1 class="text-white uppercase text-4xl mt-2"> {{ $technology->starships_fr }}</h1>
                 <p class="text-[#D0D6F9] text-center lg:text-left mt-10 mb-10 lg:max-w-xl">
-                    Un lanceur ou une fusée porteuse est un véhicule propulsé par fusée utilisé pour transporter une charge utile de la surface de la Terre vers l’espace, habituellement vers l’orbite terrestre ou au-delà. Notre fusée WEB-X est la plus puissante en service. Debout à 150 mètres de hauteur, elle donne lieu à un impressionnant spectacle sur le pas de tir !
+                {{ $technology->description_fr }}
                 </p>
             </div>
 

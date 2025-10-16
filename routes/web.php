@@ -12,29 +12,41 @@ Route::get('/', function () {
 });
 
 Route::get('/Space/Planets/space', function(){
-    return view('Space/Planets/space');
+    return view('Space.Planets.space');
 
 })->name('space');
 
-Route::get('/Space/Planets/moon', function(){
-    return view('Space/Planets/moon');
+// Routes associees à mon Controller WorkSpaceController
+// Moon / Lune
+Route::get('/Space/Planets/{id}',[WorkSpaceController::class, 'planet'] )->name('planet');
+Route::get('/Space/Planets/{id}',[WorkSpaceController::class, 'description'] )->name('description');
+Route::get('/Space/Planets/{id}',[WorkSpaceController::class, 'distance'] )->name('distance');
+Route::get('/Space/Planets/{id}',[WorkSpaceController::class, 'duration'] )->name('duration');
 
-})->name('moon');
+// Crew / Equipage
+Route::get('/Space/Crew/{id}',[WorkSpaceController::class, 'crew'] )->name('crew');
+Route::get('/Space/Crew/{id}',[WorkSpaceController::class, 'description_Crew'] )->name('description_Crew');
+
+// Technology / Technologies
+Route::get('/Space/Starships/{id}',[WorkSpaceController::class, 'technology'] )->name('technology');
+Route::get('/Space/Starships/{id}',[WorkSpaceController::class, 'description_Technology'] )->name('description_Technology');
+
+
 
 Route::get('/Space/Planets/mars', function(){
-    return view('Space/Planets/mars');
+    return view('Space.Planets.mars');
 
 })->name('mars');
 
 
 Route::get('/Space/Crew/commandant', function(){
-    return view('Space/Crew/commandant');
+    return view('Space.Crew.commandant');
 
 })->name('commandant');
 
 
 Route::get('/Space/Starships/launcher', function(){
-    return view('/Space/Starships/launcher');
+    return view('Space.Starships.launcher');
 
 })->name('launcher');
 
@@ -65,6 +77,16 @@ Route::post('/change-locale', function (Illuminate\Http\Request $request) {
 
     return response()->json(['status' => 'ok']);
 })->name('locale.change');
+
+
+
+// ✅ Utiliser le bon contrôleur
+// use App\Http\Controllers\WorkSpaceController;
+
+Route::get('/planets', [WorkSpaceController::class, 'infos']);
+
+
+
 
 
 // Route::controller(WorkSpaceController::class)->group(function () {

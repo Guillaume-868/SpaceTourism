@@ -27,10 +27,10 @@
                     </h3>
                 </div>
                
-                <span class="text-gray-700 uppercase text-lg md:text-2xl">commandant</span>
+                <span class="text-gray-700 uppercase text-lg md:text-2xl">{{$crew->fonction_fr}}</span>
                 <h1 class="text-white uppercase text-lg md:text-2xl">douglas hurley</h1>
                 <p class="text-[#D0D6F9] mt-10 text-lg md:text-2xl lg:max-w-xl">
-                    Douglas Gerald Hurley est un ingénieur américain, un ancien pilote du Corps des Marines et un ancien astronaute de la NASA...
+                    {{ $crew->description_fr }}
                 </p>
 
                 <!-- Roundlink (PC) -->
