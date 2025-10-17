@@ -83,7 +83,11 @@ class WorkSpaceController extends Controller
     //     return view('planets.index', compact('planet'));
     // }
 
-// Moon / Lune
+
+// Dry / Méthode réutilisable // Planets
+
+
+// Planets
 
     public function planet($id)
 {
@@ -122,6 +126,16 @@ public function duration($id)
     return view('Space.Planets.moon', compact('planet'));
 }
 
+public function choose_Destination($id)
+{
+    // Récupérer la planète par son ID
+    $planet = Planet::findOrFail($id);
+
+    // Passer la donnée à la vue
+    return view('Space.Planets.moon', compact('planet'));
+}
+
+
 // Crew / Equipage
 
 public function crew($id)
@@ -159,5 +173,15 @@ public function description_Technology($id)
 
     return view('Space.Starships.launcher', compact('technology'));
 }
+
+
+public function subtiltle($id)
+{
+    
+    $technology = Technology::findOrFail($id);
+
+    return view('Space.Starships.launcher', compact('technology'));
+}
+
 
 }

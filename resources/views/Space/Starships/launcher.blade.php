@@ -32,10 +32,10 @@
 
             <!-- ✅ Bloc texte -->
             <div class="flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
-                <span class="text-[#D0D6F9] uppercase text-2xl">la terminologie...</span>
-                <h1 class="text-white uppercase text-4xl mt-2"> {{ $technology->starships_fr }}</h1>
+                <span class="text-[#D0D6F9] uppercase text-2xl">{{ App::getLocale() === 'fr' ? $technology->subtitle_fr : $technology->subtitle_en }}</span>
+                <h1 class="text-white uppercase text-4xl mt-2"> {{ App::getLocale() === 'fr' ? $technology->subtitle_fr : $technology->subtitle_en}}</h1>
                 <p class="text-[#D0D6F9] text-center lg:text-left mt-10 mb-10 lg:max-w-xl">
-                {{ $technology->description_fr }}
+                {{ App::getLocale() === 'fr' ? $technology->description_fr : $technology->description_en }}
                 </p>
             </div>
 

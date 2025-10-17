@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App; // ← AJOUT ICI
 
 class Planet extends Model
 {
@@ -19,5 +20,8 @@ class Planet extends Model
         'distance_en',
         'duration_fr',
         'duration_en',
+        'subtitle_fr',
+        'subtitle_en'
     ];
+
 }

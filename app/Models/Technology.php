@@ -15,6 +15,8 @@ class Technology extends Model
         'starships_fr',
         'starships_en',
         'description_fr',
-        'description_en'
+        'description_en',
+        'subtitle_fr',
+        'subtitle_en'
     ];
 }

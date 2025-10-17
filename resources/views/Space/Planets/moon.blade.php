@@ -7,7 +7,7 @@
         <!-- Titre + image à gauche -->
         <div class="flex flex-col items-center w-full lg:w-1/2 gap-6">
             <h3 class="uppercase text-[#ffffff] text-center md:text-2xl md:whitespace-nowrap whitespace-nowrap md:mt-10 text-[#D0D6F9]">
-                Choisissez votre destination
+            {{ App::getLocale() === 'fr' ?  $planet->subtitle_fr  : $planet->subtitle_en }}
             </h3>
             <img src="{{ asset('images/Phone/moon.png') }}"
                 alt="moon"
@@ -18,21 +18,21 @@
         <div class="w-full lg:w-1/2 text-center lg:text-left">
             <x-planets />
 
-            <h1 class="uppercase text-white text-4xl md:text-8xl mt-10 md:mt-5 text-center lg:text-left">{{ $planet->name_fr }}</h1>
+            <h1 class="uppercase text-white text-4xl md:text-8xl mt-10 md:mt-5 text-center lg:text-left">{{ App::getLocale() === 'fr' ? $planet->name_fr  : $planet->name_en }}</h1>
 
             <p class="text-[#D0D6F9] text-base md:text-lg lg:text-xl mt-5 max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
-               {{ $planet->description_fr }} 
+               {{ App::getLocale() === 'fr' ? $planet->description_fr  : $planet->description_en }} 
             </p>
 
             <!-- Stats (distance et durée) -->
             <section class="mt-10 text-white flex flex-col md:flex-row items-center justify-center gap-10 md:gap-20 lg:justify-start text-center lg:text-left">
                 <div>
                     <h3 class="uppercase mb-2 text-[#D0D6F9]">distance</h3>
-                    <p class="text-white uppercase text-2xl">{{$planet->distance_fr}}</p>
+                    <p class="text-white uppercase text-2xl">{{App::getLocale() === 'fr' ?  $planet->distance_fr  :  $planet->distance_en}}</p>
                 </div>
                 <div>
                     <h3 class="uppercase mb-2 text-[#D0D6F9]">durée</h3>
-                    <p class="text-white uppercase text-2xl">{{$planet->duration_fr}}</p>
+                    <p class="text-white uppercase text-2xl">{{ App::getLocale() === 'fr' ?  $planet->duration_fr  : $planet->duration_en }}</p>
                 </div>
             </section>
         </div>

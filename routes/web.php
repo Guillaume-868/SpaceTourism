@@ -17,11 +17,12 @@ Route::get('/Space/Planets/space', function(){
 })->name('space');
 
 // Routes associees à mon Controller WorkSpaceController
-// Moon / Lune
+// Planets
 Route::get('/Space/Planets/{id}',[WorkSpaceController::class, 'planet'] )->name('planet');
 Route::get('/Space/Planets/{id}',[WorkSpaceController::class, 'description'] )->name('description');
 Route::get('/Space/Planets/{id}',[WorkSpaceController::class, 'distance'] )->name('distance');
 Route::get('/Space/Planets/{id}',[WorkSpaceController::class, 'duration'] )->name('duration');
+Route::get('/Space/Planets/{id}',[WorkSpaceController::class, 'choose_Destination'] )->name('choose_Destination');
 
 // Crew / Equipage
 Route::get('/Space/Crew/{id}',[WorkSpaceController::class, 'crew'] )->name('crew');
@@ -29,6 +30,7 @@ Route::get('/Space/Crew/{id}',[WorkSpaceController::class, 'description_Crew'] )
 
 // Technology / Technologies
 Route::get('/Space/Starships/{id}',[WorkSpaceController::class, 'technology'] )->name('technology');
+Route::get('/Space/Starships/{id}',[WorkSpaceController::class, 'subtitle'] )->name('subtitle');
 Route::get('/Space/Starships/{id}',[WorkSpaceController::class, 'description_Technology'] )->name('description_Technology');
 
 

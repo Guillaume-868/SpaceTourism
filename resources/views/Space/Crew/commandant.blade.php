@@ -27,10 +27,10 @@
                     </h3>
                 </div>
                
-                <span class="text-gray-700 uppercase text-lg md:text-2xl">{{$crew->fonction_fr}}</span>
+                <span class="text-gray-700 uppercase text-lg md:text-2xl">{{ App::getLocale() === 'fr' ?  $crew->fonction_fr  : $crew->fonction_en}}</span>
                 <h1 class="text-white uppercase text-lg md:text-2xl">douglas hurley</h1>
                 <p class="text-[#D0D6F9] mt-10 text-lg md:text-2xl lg:max-w-xl">
-                    {{ $crew->description_fr }}
+                    {{  App::getLocale() === 'fr' ?  $crew->description_fr  : $crew->description_en  }}
                 </p>
 
                 <!-- Roundlink (PC) -->
