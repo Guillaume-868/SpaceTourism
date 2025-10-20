@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\App; // ← AJOUT ICI
+// ← AJOUT ICI
 
 class Planet extends Model
 {
@@ -23,5 +23,24 @@ class Planet extends Model
         'subtitle_fr',
         'subtitle_en'
     ];
+
+    /**
+     * Sélectionne uniquement les colonnes dans la langue courante
+     */
+    public static function selectLocalized()
+    {
+        $locale = app()->getLocale(); // 'fr' ou 'en'
+
+        return self::select([
+            'id',
+            "name_{$locale} as name", // ✅ correct
+            "description_{$locale} as description", 
+            "distance_{$locale} as distance",
+            "duration_{$locale} as duration",
+            "subtitle_{$locale} as subtitle",
+            'created_at',
+            'updated_at',
+        ]);
+    }
 
 }

@@ -1,74 +1,40 @@
 <?php
 
+// ✅ Utiliser le bon contrôleur
 use App\Http\Controllers\WorkSpaceController;
-use GuzzleHttp\Promise\Create;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Route;
-use function PHPUnit\Framework\callback;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/Space/Planets/space', function(){
+// Exemple sans controller
+Route::get('/Space/Planets/space', function () {
     return view('Space.Planets.space');
-
 })->name('space');
 
-// Routes associees à mon Controller WorkSpaceController
-// Planets
-Route::get('/Space/Planets/{id}',[WorkSpaceController::class, 'planet'] )->name('planet');
-Route::get('/Space/Planets/{id}',[WorkSpaceController::class, 'description'] )->name('description');
-Route::get('/Space/Planets/{id}',[WorkSpaceController::class, 'distance'] )->name('distance');
-Route::get('/Space/Planets/{id}',[WorkSpaceController::class, 'duration'] )->name('duration');
-Route::get('/Space/Planets/{id}',[WorkSpaceController::class, 'choose_Destination'] )->name('choose_Destination');
 
-// Crew / Equipage
-Route::get('/Space/Crew/{id}',[WorkSpaceController::class, 'crew'] )->name('crew');
-Route::get('/Space/Crew/{id}',[WorkSpaceController::class, 'description_Crew'] )->name('description_Crew');
+Route::controller(WorkSpaceController::class)->group(function () {
 
-// Technology / Technologies
-Route::get('/Space/Starships/{id}',[WorkSpaceController::class, 'technology'] )->name('technology');
-Route::get('/Space/Starships/{id}',[WorkSpaceController::class, 'subtitle'] )->name('subtitle');
-Route::get('/Space/Starships/{id}',[WorkSpaceController::class, 'description_Technology'] )->name('description_Technology');
+    // Routes associees à mon Controller WorkSpaceController
+    // Planets
+    Route::get('/Space/Planets/{id}', [WorkSpaceController::class, 'showPlanet'])->name('planet');
+    Route::get('/Space/Planets/{id}', [WorkSpaceController::class, 'showPlanet'])->name('description');
+    Route::get('/Space/Planets/{id}', [WorkSpaceController::class, 'showPlanet'])->name('distance');
+    Route::get('/Space/Planets/{id}', [WorkSpaceController::class, 'showPlanet'])->name('duration');
+    Route::get('/Space/Planets/{id}', [WorkSpaceController::class, 'showPlanet'])->name('choose_Destination');
 
+    // Crew / Equipage
+    Route::get('/Space/Crew/{id}', [WorkSpaceController::class, 'showCrew'])->name('crew');
+    Route::get('/Space/Crew/{id}', [WorkSpaceController::class, 'showCrew'])->name('description_Crew');
 
+    // Technology / Technologies
+    Route::get('/Space/Starships/{id}', [WorkSpaceController::class, 'showTechnology'])->name('technology');
+    Route::get('/Space/Starships/{id}', [WorkSpaceController::class, 'showTechnology'])->name('subtitle');
+    Route::get('/Space/Starships/{id}', [WorkSpaceController::class, 'showTechnology'])->name('description_Technology');
+});
 
-Route::get('/Space/Planets/mars', function(){
-    return view('Space.Planets.mars');
-
-})->name('mars');
-
-
-Route::get('/Space/Crew/commandant', function(){
-    return view('Space.Crew.commandant');
-
-})->name('commandant');
-
-
-Route::get('/Space/Starships/launcher', function(){
-    return view('Space.Starships.launcher');
-
-})->name('launcher');
-
-
-// Route liée au changement de langue : 
-// (presentes plus haut)
-// use Illuminate\Support\Facades\App;
-// use Illuminate\Support\Facades\Session;
-
-// Route::post('/locale', function () {
-//     $locale = request('locale');
-
-//     if (in_array($locale, ['en', 'fr', 'es', 'de', 'it'])) {
-//         session(['locale' => $locale]);
-//         app()->setLocale($locale);
-//     }
-
-//     return response()->json(['status' => 'ok']);
-// })->name('locale.change');
-
+// Gestion de la langue
 Route::post('/change-locale', function (Illuminate\Http\Request $request) {
     $locale = $request->input('locale');
 
@@ -82,117 +48,10 @@ Route::post('/change-locale', function (Illuminate\Http\Request $request) {
 
 
 
-// ✅ Utiliser le bon contrôleur
-// use App\Http\Controllers\WorkSpaceController;
-
-Route::get('/planets', [WorkSpaceController::class, 'infos']);
 
 
 
 
 
-// Route::controller(WorkSpaceController::class)->group(function () {
 
-//     // CREW
-//     Route::get('/Space/Crew/commandant','index');
-//     Route::get('/Space/Crew/commandant','create');
-//     Route::get('/Space/Crew/commandant/{id}','show');
-//     Route::post('/Space/Crew/commandant','store');
-//     Route::get('/Space/Crew/commandant/{id}','edit');
-//     Route::post('/Space/Crew/commandant/{id}','update');
-//     Route::get('/Space/Crew/commandant/{id}','delete');
 
-//     Route::get('/Space/Crew/ingenieure','index');
-//     Route::get('/Space/Crew/ingenieure','create');
-//     Route::get('/Space/Crew/ingenieure/{id}','show');
-//     Route::post('/Space/Crew/ingenieure','store');
-//     Route::get('/Space/Crew/ingenieure/{id}','edit');
-//     Route::post('/Space/Crew/ingenieure/{id}','update');
-//     Route::get('/Space/Crew/ingenieure/{id}','delete');
-
-//     Route::get('/Space/Crew/pilote','index');
-//     Route::get('/Space/Crew/pilote','create');
-//     Route::get('/Space/Crew/pilote/{id}','show');
-//     Route::post('/Space/Crew/pilote','store');
-//     Route::get('/Space/Crew/pilote/{id}','edit');
-//     Route::post('/Space/Crew/pilote/{id}','update');
-//     Route::get('/Space/Crew/pilote/{id}','delete');
-
-//     Route::get('/Space/Crew/specialiste','index');
-//     Route::get('/Space/Crew/specialiste','create');
-//     Route::get('/Space/Crew/specialiste/{id}','show');
-//     Route::post('/Space/Crew/specialiste','store');
-//     Route::get('/Space/Crew/specialiste/{id}','edit');
-//     Route::post('/Space/Crew/specialiste/{id}','update');
-//     Route::get('/Space/Crew/specialiste/{id}','delete');
-
-//     // Planets
-//     Route::get('/Space/Planets/europe','index');
-//     Route::get('/Space/Planets/europe','create');
-//     Route::get('/Space/Planets/europe/{id}','show');
-//     Route::post('/Space/Planets/europe','store');
-//     Route::get('/Space/Planets/europe/{id}','edit');
-//     Route::post('/Space/Planets/europe/{id}','update');
-//     Route::get('/Space/Planets/europe/{id}','delete');
-   
-//     Route::get('/Space/Planets/mars','index');
-//     Route::get('/Space/Planets/mars','create');
-//     Route::get('/Space/Planets/mars/{id}','show');
-//     Route::post('/Space/Planets/mars','store');
-//     Route::get('/Space/Planets/mars/{id}','edit');
-//     Route::post('/Space/Planets/mars/{id}','update');
-//     Route::get('/Space/Planets/mars/{id}','delete');
-
-//     Route::get('/Space/Planets/moon','index');
-//     Route::get('/Space/Planets/moon','create');
-//     Route::get('/Space/Planets/moon/{id}','show');
-//     Route::post('/Space/Planets/moon','store');
-//     Route::get('/Space/Planets/moon/{id}','edit');
-//     Route::post('/Space/Planets/moon/{id}','update');
-//     Route::get('/Space/Planets/moon/{id}','delete');
-
-   
-//     Route::get('/Space/Planets/space','index');
-//     Route::get('/Space/Planets/space','create');
-//     Route::get('/Space/Planets/space/{id}','show');
-//     Route::post('/Space/Planets/space','store');
-//     Route::get('/Space/Planets/space/{id}','edit');
-//     Route::post('/Space/Planets/space/{id}','update');
-//     Route::get('/Space/Planets/space/{id}','delete');
-
-//     Route::get('/Space/Planets/titan','index');
-//     Route::get('/Space/Planets/titan','create');
-//     Route::get('/Space/Planets/titan/{id}','show');
-//     Route::post('/Space/Planets/titan','store');
-//     Route::get('/Space/Planets/titan/{id}','edit');
-//     Route::post('/Space/Planets/titan/{id}','update');
-//     Route::get('/Space/Planets/titan/{id}','delete');
-
-//     // Starships
-//     Route::get('/Space/Starships/launcher','index');
-//     Route::get('/Space/Starships/launcher','create');
-//     Route::get('/Space/Starships/launcher/{id}','show');
-//     Route::post('/Space/Starships/launcher','store');
-//     Route::get('/Space/Starships/launcher/{id}','edit');
-//     Route::post('/Space/Starships/launcher/{id}','update');
-//     Route::get('/Space/Starships/launcher/{id}','delete');
-
-    
-//     Route::get('/Space/Starships/spaceCapsule','index');
-//     Route::get('/Space/Starships/spaceCapsule','create');
-//     Route::get('/Space/Starships/spaceCapsule/{id}','show');
-//     Route::post('/Space/Starships/spaceCapsule','store');
-//     Route::get('/Space/Starships/spaceCapsule/{id}','edit');
-//     Route::post('/Space/Starships/spaceCapsule/{id}','update');
-//     Route::get('/Space/Starships/spaceCapsule/{id}','delete');
-
-    
-//     Route::get('/Space/Starships/starport','index');
-//     Route::get('/Space/Starships/starport','create');
-//     Route::get('/Space/Starships/starport/{id}','show');
-//     Route::post('/Space/Starships/starport','store');
-//     Route::get('/Space/Starships/starport/{id}','edit');
-//     Route::post('/Space/Starships/starport/{id}','update');
-//     Route::get('/Space/Starships/starport/{id}','delete');
-
-// });

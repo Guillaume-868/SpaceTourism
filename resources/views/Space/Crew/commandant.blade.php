@@ -8,7 +8,7 @@
             <div class="flex flex-row items-center gap-4 bg-[#0B0D17] py-2 justify-center md:justify-start mb-10 lg:mb-20 w-full lg:hidden">
                 <x-nb02 />
                 <h3 class="uppercase text-white text-center md:text-left text-lg md:text-2xl lg:hidden ">
-                    Rencontrez l'équipage
+                {{ $crew->meet }}
                 </h3>
             </div>
         </div>
@@ -23,14 +23,14 @@
                 <div class="hidden lg:block lg:flex lg:gap-5 lg:mb-30">
                     <x-nb02 />
                     <h3 class="uppercase text-white text-left text-lg md:text-2xl hidden lg:block">
-                        Rencontrez l'équipage
+                    {{ $crew->meet }}
                     </h3>
                 </div>
                
-                <span class="text-gray-700 uppercase text-lg md:text-2xl">{{ App::getLocale() === 'fr' ?  $crew->fonction_fr  : $crew->fonction_en}}</span>
+                <span class="text-gray-700 uppercase text-lg md:text-2xl">{{ $crew->fonction }}</span>
                 <h1 class="text-white uppercase text-lg md:text-2xl">douglas hurley</h1>
                 <p class="text-[#D0D6F9] mt-10 text-lg md:text-2xl lg:max-w-xl">
-                    {{  App::getLocale() === 'fr' ?  $crew->description_fr  : $crew->description_en  }}
+                    {{ $crew->description }}
                 </p>
 
                 <!-- Roundlink (PC) -->

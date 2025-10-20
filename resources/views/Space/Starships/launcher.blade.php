@@ -5,7 +5,7 @@
     <!-- Titre -->
     <div class="flex flex-row gap-4 bg-[#0B0D17] px-4 py-2 justify-center md:justify-start mb-10 lg:ml-20">
         <x-nb03 />
-        <h3 class="uppercase text-[#ffffff] md:text-left text-lg md:text-2xl mt-5 ">lanceur spatial</h3>
+        <h3 class="uppercase text-[#ffffff] md:text-left text-lg md:text-2xl mt-5 "> {{ $technology->launcher }}</h3>
     </div>
 
     <!-- ✅ Layout principal : flex-col en mobile, flex-row en lg -->
@@ -32,10 +32,10 @@
 
             <!-- ✅ Bloc texte -->
             <div class="flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
-                <span class="text-[#D0D6F9] uppercase text-2xl">{{ App::getLocale() === 'fr' ? $technology->subtitle_fr : $technology->subtitle_en }}</span>
-                <h1 class="text-white uppercase text-4xl mt-2"> {{ App::getLocale() === 'fr' ? $technology->subtitle_fr : $technology->subtitle_en}}</h1>
+                <span class="text-[#D0D6F9] uppercase text-2xl"> {{ $technology->fonction }} </span>
+                <h1 class="text-white uppercase text-4xl mt-2"> {{ $technology->subtitle }}</h1>
                 <p class="text-[#D0D6F9] text-center lg:text-left mt-10 mb-10 lg:max-w-xl">
-                {{ App::getLocale() === 'fr' ? $technology->description_fr : $technology->description_en }}
+                {{ $technology->description }}
                 </p>
             </div>
 
