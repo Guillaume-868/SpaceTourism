@@ -20,7 +20,7 @@ Route::controller(WorkSpaceController::class)->group(function () {
     Route::get('/Space/Planets/space', [WorkSpaceController::class, 'showHome'])->name('home');
     Route::get('/Space/Planets/', [WorkSpaceController::class, 'showPlanets'])->name('planets');
     Route::get('/Space/Crew/', [WorkSpaceController::class, 'showCrews'])->name('crews');
-    Route::get('/Space/Technologies/', [WorkSpaceController::class, 'howTechnologies'])->name('technologies');
+    Route::get('/Space/Technologies/', [WorkSpaceController::class, 'showTechnologies'])->name('technologies');
 
     // Routes associees à mon Controller WorkSpaceController
     // Planets

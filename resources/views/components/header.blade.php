@@ -10,18 +10,13 @@
         <section class="flex items-center justify-center mb-20 lg:mt-20">
             <nav class=" flex hidden md:block absolute top-0 right-0 bg-[#0B0D27] backdrop-blur-sm px-8 py-5 items-center justify-center lg:mt-10">
                 <ul class="flex gap-6 pt-3 pb-3 pl-10 pr-5 bg-[#0B0D27] backdrop-blur-sm items-center justify-center lg:gap-20">
+                    @foreach(nav_items() as $index => $item)
                     <li class="uppercase text-gray-200 hover:text-[#D0D6F9] border-b-4 border-transparent hover:border-[#D0D6F9] active:border-white pb-2 md:text-lg lg:text-2xl">
-                        <a href="#" class="block">Accueil</a>
+                        <a href="{{ $item['route'] }}" class="block">
+                            {{ str_pad($index, 2, '0', STR_PAD_LEFT) }} {{ $item['label'] }}
+                        </a>
                     </li>
-                    <li class="uppercase text-gray-200 hover:text-[#D0D6F9] border-b-4 border-transparent hover:border-[#D0D6F9] active:border-white pb-2 md:text-lg lg:text-2xl">
-                        <a href="#" class="block">Destination</a>
-                    </li>
-                    <li class="uppercase text-gray-200 hover:text-[#D0D6F9] border-b-4 border-transparent hover:border-[#D0D6F9] active:border-white pb-2 md:text-lg lg:text-2xl">
-                        <a href="#" class="block">Equipage</a>
-                    </li>
-                    <li class="uppercase text-gray-200 hover:text-[#D0D6F9] border-b-4 border-transparent hover:border-[#D0D6F9] active:border-white pb-2 md:text-lg lg:text-2xl">
-                        <a href="#" class="block">Technologies</a>
-                    </li>
+                    @endforeach
                 </ul>
             </nav>
         </section>
@@ -45,18 +40,13 @@
             &times;
         </button>
         <ul>
-            <li>
-                <a href="#" class="block py-2 text-[#D0D6F9] hover:text-white pl-4 mb-2"> 00 Accueil</a>
+            @foreach(nav_items() as $index => $item)
+            <li class="block py-2 text-[#D0D6F9] hover:text-white pl-4 mb-2">
+                <a href="{{ $item['route'] }}" class="block">
+                    {{ str_pad($index, 2, '0', STR_PAD_LEFT) }} {{ $item['label'] }}
+                </a>
             </li>
-            <li>
-            </li>
-            <a href="#" class="block py-2 text-[#D0D6F9] hover:text-white pl-4 mb-2"> 01 Destination</a>
-            <li>
-                <a href="#" class="block py-2 text-[#D0D6F9] hover:text-white pl-4 mb-2"> 02 Equipage</a>
-            </li>
-            <li>
-                <a href="#" class="block py-2 text-[#D0D6F9] hover:text-white pl-4 mb-2"> 03 Technologies</a>
-            </li>
+            @endforeach
 
         </ul>
     </div>

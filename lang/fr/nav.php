@@ -6,3 +6,4 @@ return [
     'crew' => 'Equipage',
     'technologies' => 'Technologies',
 ];
+
