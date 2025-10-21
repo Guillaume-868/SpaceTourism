@@ -9,13 +9,44 @@ use App\Models\Technology;
 class WorkSpaceController extends Controller
 {
 
+    // Home
+    public function showHome()
+    {
+        return view('Space.Planets.space');
+    }
+
+    // Planets
+    public function showPlanets()
+    {
+        return view('Space.Planets');
+    }
+
+    
+    public function showCrews()
+    {
+        return view('Space.Crew');
+    }
+
+    
+    public function showTechnologies()
+    {
+        return view('Space.Starships');
+    }
+
+
+
+
+
+    // Planets
     public function showPlanet($id)
     {
         $planet = Planet::selectLocalized()->findOrFail($id);
         // $planet = Planet::findOrFail($id);
 
-        // var_dump($planet->description);
+        // var_dump($planet);
         // exit;
+
+        // dd($planet->toArray());
 
         return view('Space.Planets.moon', compact('planet'));
     }
@@ -38,4 +69,3 @@ class WorkSpaceController extends Controller
         return view('Space.Starships.launcher', compact('technology'));
     }
 }
-
