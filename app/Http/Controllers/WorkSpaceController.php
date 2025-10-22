@@ -18,19 +18,22 @@ class WorkSpaceController extends Controller
     // Planets
     public function showPlanets()
     {
-        return view('Space.Planets');
+        $planet = Planet::selectLocalized()->findOrFail(1);
+        return view('Space.Planets.moon', compact('planet'));
     }
 
     
     public function showCrews()
     {
-        return view('Space.Crew');
+        $crew = Crew::selectLocalized()->findOrFail(1);
+        return view('Space.Crew.commandant', compact('crew'));
     }
 
     
     public function showTechnologies()
     {
-        return view('Space.Starships');
+        $technology  = Technology::selectLocalized()->findOrFail(1);
+        return view('Space.Starships.launcher', compact('technology'));
     }
 
 

@@ -12,15 +12,15 @@ if (!function_exists('nav_items')) {
             ],
             [
                 'label' => __('nav.destination'),
-                'route' => route('planets'),
+                'route' => route('planet'),
             ],
             [
                 'label' => __('nav.crew'),
-                'route' => route('crews'),
+                'route' => route('crew'),
             ],
             [
                 'label' => __('nav.technologies'),
-                'route' => route('technologies'),
+                'route' => route('technology'),
             ],
         ];
     }

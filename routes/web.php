@@ -16,11 +16,11 @@ Route::get('/Space/Planets/space', function () {
 
 Route::controller(WorkSpaceController::class)->group(function () {
 
-    // Pages globales
+    // Accueil + Helper
     Route::get('/Space/Planets/space', [WorkSpaceController::class, 'showHome'])->name('home');
-    Route::get('/Space/Planets/', [WorkSpaceController::class, 'showPlanets'])->name('planets');
-    Route::get('/Space/Crew/', [WorkSpaceController::class, 'showCrews'])->name('crews');
-    Route::get('/Space/Technologies/', [WorkSpaceController::class, 'showTechnologies'])->name('technologies');
+    Route::get('/Space/Planets/', [WorkSpaceController::class, 'showPlanets'])->name('planet');
+    Route::get('/Space/Crew/', [WorkSpaceController::class, 'showCrews'])->name('crew');
+    Route::get('/Space/Technologies/', [WorkSpaceController::class, 'showTechnologies'])->name('technology');
 
     // Routes associees à mon Controller WorkSpaceController
     // Planets
