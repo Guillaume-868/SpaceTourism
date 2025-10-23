@@ -71,4 +71,11 @@ class WorkSpaceController extends Controller
 
         return view('Space.Starships.launcher', compact('technology'));
     }
+
+
+
+
+
+
+
 }

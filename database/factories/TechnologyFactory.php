@@ -17,7 +17,16 @@ class TechnologyFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'starships_en' => 'launcher',
+            'starships_fr' => 'Lanceur',
+            'description_fr' => 'Un vaisseau spatial',
+            'description_en' => 'a starship',
+            'subtitle_fr' => 'voyage',
+            'subtitle_en' =>'travel',
+            'launcher_fr' => 'lanceur 101',
+            'launcher_en' => 'launcher 101',
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }

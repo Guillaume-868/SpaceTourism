@@ -9,9 +9,9 @@ Route::get('/', function () {
 });
 
 // Exemple sans controller
-Route::get('/Space/Planets/space', function () {
-    return view('Space.Planets.space');
-})->name('space');
+// Route::get('/Space/Planets/space', function () {
+//     return view('Space.Planets.space');
+// })->name('space');
 
 
 Route::controller(WorkSpaceController::class)->group(function () {
@@ -24,20 +24,14 @@ Route::controller(WorkSpaceController::class)->group(function () {
 
     // Routes associees à mon Controller WorkSpaceController
     // Planets
-    Route::get('/Space/Planets/{id}', [WorkSpaceController::class, 'showPlanet'])->name('planet');
-    Route::get('/Space/Planets/{id}', [WorkSpaceController::class, 'showPlanet'])->name('description');
-    Route::get('/Space/Planets/{id}', [WorkSpaceController::class, 'showPlanet'])->name('distance');
-    Route::get('/Space/Planets/{id}', [WorkSpaceController::class, 'showPlanet'])->name('duration');
-    Route::get('/Space/Planets/{id}', [WorkSpaceController::class, 'showPlanet'])->name('choose_Destination');
+    Route::get('/Space/Planets/{id}', [WorkSpaceController::class, 'showPlanet'])->name('planetID');
 
     // Crew / Equipage
-    Route::get('/Space/Crew/{id}', [WorkSpaceController::class, 'showCrew'])->name('crew');
-    Route::get('/Space/Crew/{id}', [WorkSpaceController::class, 'showCrew'])->name('description_Crew');
+    Route::get('/Space/Crew/{id}', [WorkSpaceController::class, 'showCrew'])->name('crewID');
 
     // Technology / Technologies
-    Route::get('/Space/Starships/{id}', [WorkSpaceController::class, 'showTechnology'])->name('technology');
-    Route::get('/Space/Starships/{id}', [WorkSpaceController::class, 'showTechnology'])->name('subtitle');
-    Route::get('/Space/Starships/{id}', [WorkSpaceController::class, 'showTechnology'])->name('description_Technology');
+    Route::get('/Space/Starships/{id}', [WorkSpaceController::class, 'showTechnology'])->name('technologyID');
+   
 });
 
 // Gestion de la langue

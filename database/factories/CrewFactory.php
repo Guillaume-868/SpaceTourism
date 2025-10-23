@@ -17,7 +17,14 @@ class CrewFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'fonction_fr' =>'Pilote',
+            'fonction_en' => 'Pilot',
+            'description_fr' => 'Nous allons décoller',
+            'description_en' => 'we\'re gonna take off',
+            'meet_fr' => 'Venez nous rencontrer',
+            'meet_en' => 'come and meet us',
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }
