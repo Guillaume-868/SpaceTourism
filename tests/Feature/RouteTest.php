@@ -32,12 +32,12 @@ class RouteTest extends TestCase
             'meet_fr' => 'Rencontrez notre commandant',
         ]);
 
-        // $technology = Technology::factory()->create([
-        //     'starships_fr' => 'Lanceur X',
-        //     'description_fr' => 'Propulsion de nouvelle génération.',
-        //     'subtitle_fr' =>    'Technologie',
-        //     'launcher_fr' =>  'Plateforme'
-        // ]);
+        $technology = Technology::factory()->create([
+            'description_fr' => 'Propulsion de nouvelle génération.',
+            'subtitle_fr' =>    'Technologie',
+            'launcher_fr' =>  'Plateforme',
+            'starships_fr' => 'Lanceur X',
+        ]);
 
         // Voici mes routes, ce qu'il y a en chaine de caratère doit correspondre à ce qu'il a dans : // 🪐 Données de test avec valeurs fixes
         // 🌐 Tableau des routes à tester
@@ -57,12 +57,13 @@ class RouteTest extends TestCase
                 'Dirige la mission avec précision et sang-froid.',
                 'Rencontrez notre commandant'
             ]],
-            // ["/Space/Starships/{$technology->id}", [
-            //     'Lanceur X',
-            //     'Propulsion de nouvelle génération.',
-            //     'Technologie',
-            //     'Plateforme'
-            // ]],
+
+            ["/Space/Starships/{$technology->id}", [
+                'Propulsion de nouvelle génération.',
+                'Technologie',
+                'Plateforme',
+                'Lanceur X'
+            ]],
         ];
 
         // 🧪 Boucle de test
@@ -79,20 +80,3 @@ class RouteTest extends TestCase
         }
     }
 }
-
-        // $response = $this->get('/Space/Planets/space'); 
-    
-        // $this->assertEquals(
-        //     200,
-        //     $response->getStatusCode(),
-        //     "❌ La route /Space/Planets/space ne retourne pas un code 200."
-        // );
-    
-        // $this->assertStringContainsString(
-        //     'ok',
-        //     $response->getContent(),
-        //     "❌ Le message ok n'a pas été trouvé dans la réponse."
-        // );
-    
-        // // ✅ Message affiché si tout est bon
-        // echo "✅ La route fonctionne et le contenu attendu est présent.\n";
