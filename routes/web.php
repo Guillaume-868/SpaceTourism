@@ -14,7 +14,7 @@ Route::get('/', function () {
 // })->name('space');
 
 
-Route::controller(WorkSpaceController::class)->group(function () {
+// Route::controller(WorkSpaceController::class)->group(function () {
 
     // Accueil + Helper
     Route::get('/Space/Planets/space', [WorkSpaceController::class, 'showHome'])->name('home');
@@ -32,7 +32,7 @@ Route::controller(WorkSpaceController::class)->group(function () {
     // Technology / Technologies
     Route::get('/Space/Starships/{id}', [WorkSpaceController::class, 'showTechnology'])->name('technologyID');
    
-});
+// });
 
 // Gestion de la langue
 Route::post('/change-locale', function (Illuminate\Http\Request $request) {

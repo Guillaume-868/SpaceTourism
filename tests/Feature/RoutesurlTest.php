@@ -32,11 +32,11 @@ class RoutesUrlTest extends TestCase
 
             $response = $this->get($url);
             
-            dump([
-                'url' => $url,
-                'status' => $response->status(),
-                'content_preview' => substr($response->getContent(), 0, 200) // 200 caractères html
-            ]);
+            // dump([
+            //     'url' => $url,
+            //     'status' => $response->status(),
+            //     'content_preview' => substr($response->getContent(), 0, 200) // 200 caractères html
+            // ]);
 
             $response->assertStatus(200, "❌ La route {$url} ne retourne pas un code 200.");
         }
